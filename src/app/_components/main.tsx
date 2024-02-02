@@ -91,7 +91,9 @@ export default function Main() {
         <p>Email</p>
       </div>
 
-      {(click && fetchAllUsers?.data) &&
+      
+      {// eslint-disable-next-line @typescript-eslint/prefer-optional-chain
+      (click && fetchAllUsers?.data) &&
         fetchAllUsers?.data?.map((user) => (
           <div
             key={user.id}
