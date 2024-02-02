@@ -31,7 +31,11 @@ export default function Main() {
       });
       setName("");
       setEmail("");
-      await fetchAllUsers.refetch();
+      await fetchAllUsers.refetch().then((res)=> {
+        console.log(res)
+      }).catch((error)=>{
+        console.log(error)
+      });
     } catch (error) {
       console.log(error);
     }
@@ -47,7 +51,11 @@ export default function Main() {
       setNameToUpdate("");
       setEmailToUpdate("");
       setUserIdToUpdate("");
-      await fetchAllUsers.refetch();
+      await fetchAllUsers.refetch().then((res)=> {
+        console.log(res)
+      }).catch((error)=>{
+        console.log(error)
+      });;
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +67,11 @@ export default function Main() {
         id: userIdToDelete,
       });
       setUserIdToDelete("");
-      await fetchAllUsers.refetch();
+      await fetchAllUsers.refetch().then((res)=> {
+        console.log(res)
+      }).catch((error)=>{
+        console.log(error)
+      });;
     } catch (error) {
       console.log(error);
     }
@@ -109,7 +121,7 @@ export default function Main() {
           />
           <button
             className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-            onClick={() => fetchOneUser.refetch()}
+            onClick={async() => await fetchOneUser.refetch()}
           >
             Get One User
           </button>
