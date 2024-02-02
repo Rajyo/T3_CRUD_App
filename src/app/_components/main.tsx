@@ -28,6 +28,10 @@ export default function Main() {
       await createUserMutation.mutateAsync({
         name: name,
         email: email,
+      }).then((res)=> {
+        console.log(res)
+      }).catch((error)=>{
+        console.log(error)
       });
       setName("");
       setEmail("");
@@ -47,7 +51,11 @@ export default function Main() {
         id: userIdToUpdate,
         name: nameToUpdate,
         email: emailToUpdate,
-      });
+      }).then((res)=> {
+        console.log(res)
+      }).catch((error)=>{
+        console.log(error)
+      });;
       setNameToUpdate("");
       setEmailToUpdate("");
       setUserIdToUpdate("");
@@ -55,7 +63,7 @@ export default function Main() {
         console.log(res)
       }).catch((error)=>{
         console.log(error)
-      });;
+      });
     } catch (error) {
       console.log(error);
     }
@@ -65,6 +73,10 @@ export default function Main() {
     try {
       await deleteUserMutation.mutateAsync({
         id: userIdToDelete,
+      }).then((res)=> {
+        console.log(res)
+      }).catch((error)=>{
+        console.log(error)
       });
       setUserIdToDelete("");
       await fetchAllUsers.refetch().then((res)=> {
@@ -121,12 +133,16 @@ export default function Main() {
           />
           <button
             className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-            onClick={async() => await fetchOneUser.refetch()}
+            onClick={async() => await fetchOneUser.refetch().then((res)=> {
+              console.log(res)
+            }).catch((error)=>{
+              console.log(error)
+            })}
           >
             Get One User
           </button>
         </div>
-        {fetchOneUser.data && (
+        {fetchOneUser?.data && (
           <div>
             <p>Name: {fetchOneUser.data.name}</p>
             <p>Email: {fetchOneUser.data.email}</p>
