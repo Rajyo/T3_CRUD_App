@@ -28,16 +28,16 @@ export default function Main() {
       await createUserMutation.mutateAsync({
         name: name,
         email: email,
-      }).then((res)=> {
+      }).then((res) => {
         console.log(res)
-      }).catch((error)=>{
+      }).catch((error) => {
         console.log(error)
       });
       setName("");
       setEmail("");
-      await fetchAllUsers.refetch().then((res)=> {
+      await fetchAllUsers.refetch().then((res) => {
         console.log(res)
-      }).catch((error)=>{
+      }).catch((error) => {
         console.log(error)
       });
     } catch (error) {
@@ -51,17 +51,17 @@ export default function Main() {
         id: userIdToUpdate,
         name: nameToUpdate,
         email: emailToUpdate,
-      }).then((res)=> {
+      }).then((res) => {
         console.log(res)
-      }).catch((error)=>{
+      }).catch((error) => {
         console.log(error)
-      });;
+      });
       setNameToUpdate("");
       setEmailToUpdate("");
       setUserIdToUpdate("");
-      await fetchAllUsers.refetch().then((res)=> {
+      await fetchAllUsers.refetch().then((res) => {
         console.log(res)
-      }).catch((error)=>{
+      }).catch((error) => {
         console.log(error)
       });
     } catch (error) {
@@ -73,17 +73,17 @@ export default function Main() {
     try {
       await deleteUserMutation.mutateAsync({
         id: userIdToDelete,
-      }).then((res)=> {
+      }).then((res) => {
         console.log(res)
-      }).catch((error)=>{
+      }).catch((error) => {
         console.log(error)
       });
       setUserIdToDelete("");
-      await fetchAllUsers.refetch().then((res)=> {
+      await fetchAllUsers.refetch().then((res) => {
         console.log(res)
-      }).catch((error)=>{
+      }).catch((error) => {
         console.log(error)
-      });;
+      });
     } catch (error) {
       console.log(error);
     }
@@ -97,7 +97,7 @@ export default function Main() {
       </div>
       <button
         className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-        onClick={async() => { setClick(true); await fetchAllUsers.refetch() }}
+        onClick={async () => { setClick(true); await fetchAllUsers.refetch() }}
       >
         Get All Users
       </button>
@@ -133,9 +133,9 @@ export default function Main() {
           />
           <button
             className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-            onClick={async() => await fetchOneUser.refetch().then((res)=> {
+            onClick={async () => await fetchOneUser.refetch().then((res) => {
               console.log(res)
-            }).catch((error)=>{
+            }).catch((error) => {
               console.log(error)
             })}
           >
