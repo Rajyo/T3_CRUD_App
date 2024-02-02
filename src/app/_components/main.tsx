@@ -31,7 +31,7 @@ export default function Main() {
       });
       setName("");
       setEmail("");
-      fetchAllUsers.refetch();
+      await fetchAllUsers.refetch();
     } catch (error) {
       console.log(error);
     }
