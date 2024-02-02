@@ -76,12 +76,10 @@ export default function Main() {
       </div>
       <button
         className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-        onClick={async () => {
-          setClick(true); await fetchAllUsers.refetch().then((res) => {
-            console.log(res)
-          }).catch((error) => {
-            console.log(error)
-          })
+        onClick={ () => {
+          setClick(true);
+          // eslint-disable-next-line @typescript-eslint/no-floating-promises
+          fetchAllUsers.refetch()
         }}
       >
         Get All Users
@@ -118,11 +116,9 @@ export default function Main() {
           />
           <button
             className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-            onClick={async () => await fetchOneUser.refetch().then((res) => {
-              console.log(res)
-            }).catch((error) => {
-              console.log(error)
-            })}
+            onClick={ () =>
+              // eslint-disable-next-line @typescript-eslint/no-floating-promises
+              fetchOneUser.refetch()}
           >
             Get One User
           </button>
