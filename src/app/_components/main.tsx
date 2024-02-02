@@ -30,11 +30,8 @@ export default function Main() {
     }).then(async () => {
       setName("");
       setEmail("");
-      await fetchAllUsers.refetch().then((res) => {
-        console.log(res)
-      }).catch((error) => {
-        console.log(error)
-      });
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      fetchAllUsers.refetch()
     }).catch((error) => {
       console.log(error)
     })
@@ -50,11 +47,8 @@ export default function Main() {
       setNameToUpdate("");
       setEmailToUpdate("");
       setUserIdToUpdate("");
-      await fetchAllUsers.refetch().then((res) => {
-        console.log(res)
-      }).catch((error) => {
-        console.log(error)
-      });
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      fetchAllUsers.refetch()
     }).catch((error) => {
       console.log(error)
     });
@@ -66,11 +60,8 @@ export default function Main() {
       id: userIdToDelete,
     }).then(async () => {
       setUserIdToDelete("");
-      await fetchAllUsers.refetch().then((res) => {
-        console.log(res)
-      }).catch((error) => {
-        console.log(error)
-      });
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises 
+      fetchAllUsers.refetch()
     }).catch((error) => {
       console.log(error)
     });
