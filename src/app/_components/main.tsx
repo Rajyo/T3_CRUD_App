@@ -47,7 +47,7 @@ export default function Main() {
       setNameToUpdate("");
       setEmailToUpdate("");
       setUserIdToUpdate("");
-      fetchAllUsers.refetch();
+      await fetchAllUsers.refetch();
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +59,7 @@ export default function Main() {
         id: userIdToDelete,
       });
       setUserIdToDelete("");
-      fetchAllUsers.refetch();
+      await fetchAllUsers.refetch();
     } catch (error) {
       console.log(error);
     }
@@ -73,7 +73,7 @@ export default function Main() {
       </div>
       <button
         className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-        onClick={() => { setClick(true); fetchAllUsers.refetch() }}
+        onClick={async() => { setClick(true); await fetchAllUsers.refetch() }}
       >
         Get All Users
       </button>
@@ -84,8 +84,8 @@ export default function Main() {
         <p>Email</p>
       </div>
 
-      {(click && fetchAllUsers.data) &&
-        fetchAllUsers.data.map((user) => (
+      {(click && fetchAllUsers?.data) &&
+        fetchAllUsers?.data?.map((user) => (
           <div
             key={user.id}
             className="my-4 grid grid-cols-3 gap-4 rounded border border-gray-300 bg-white p-4 shadow"
