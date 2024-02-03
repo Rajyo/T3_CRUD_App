@@ -153,7 +153,12 @@ export default function Main() {
 
         <button
           className="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
-          onClick={() => { setClick(true); handleCreateUser }}
+          onClick={() => {
+            handleCreateUser
+            setClick(true);
+            // eslint-disable-next-line @typescript-eslint/no-floating-promises
+            fetchAllUsers.refetch()
+          }}
         >
           Create User
         </button>
@@ -184,7 +189,12 @@ export default function Main() {
         />
         <button
           className="mt-2 rounded bg-orange-500 px-4 py-2 text-white hover:bg-orange-600"
-          onClick={() => { setClick(true); handleUpdateUser }}
+          onClick={() => {
+            handleUpdateUser
+            setClick(true);
+            // eslint-disable-next-line @typescript-eslint/no-floating-promises
+            fetchAllUsers.refetch()
+          }}
         >
           Update User
         </button>
@@ -202,7 +212,12 @@ export default function Main() {
         />
         <button
           className="mt-2 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
-          onClick={() => { setClick(true); handleDeleteUser }}
+          onClick={() => {
+            handleDeleteUser
+            setClick(true);
+            // eslint-disable-next-line @typescript-eslint/no-floating-promises
+            fetchAllUsers.refetch()
+          }}
         >
           Delete User
         </button>
