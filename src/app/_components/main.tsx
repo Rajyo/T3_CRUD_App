@@ -28,6 +28,7 @@ export default function Main() {
       name: name,
       email: email,
     }).then(async () => {
+      setClick(true);
       setName("");
       setEmail("");
       // eslint-disable-next-line @typescript-eslint/no-floating-promises
@@ -44,6 +45,7 @@ export default function Main() {
       name: nameToUpdate,
       email: emailToUpdate,
     }).then(async () => {
+      setClick(true);
       setNameToUpdate("");
       setEmailToUpdate("");
       setUserIdToUpdate("");
@@ -59,6 +61,7 @@ export default function Main() {
     await deleteUserMutation.mutateAsync({
       id: userIdToDelete,
     }).then(async () => {
+      setClick(true);
       setUserIdToDelete("");
       // eslint-disable-next-line @typescript-eslint/no-floating-promises 
       fetchAllUsers.refetch()
