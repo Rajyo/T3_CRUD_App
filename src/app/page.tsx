@@ -9,7 +9,7 @@ export default async function Home() {
     <>
 
       <main>
-        <h1 className="flex justify-center text-4xl font-bold my-10">T3 CRUD App</h1>
+        <h1 className="flex justify-center text-5xl font-bold mt-10 mb-5">T3 CRUD App</h1>
         <Main />
       </main>
 
