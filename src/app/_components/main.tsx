@@ -76,7 +76,7 @@ export default function Main() {
       </div>
       <button
         className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-        onClick={() => {
+        onClick={ () => {
           setClick(true);
           // eslint-disable-next-line @typescript-eslint/no-floating-promises
           fetchAllUsers.refetch()
@@ -91,9 +91,9 @@ export default function Main() {
         <p>Email</p>
       </div>
 
-
+      
       {// eslint-disable-next-line @typescript-eslint/prefer-optional-chain
-        (click && fetchAllUsers?.data) &&
+      (click && fetchAllUsers?.data) &&
         fetchAllUsers?.data?.map((user) => (
           <div
             key={user.id}
@@ -118,7 +118,7 @@ export default function Main() {
           />
           <button
             className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-            onClick={() =>
+            onClick={ () =>
               // eslint-disable-next-line @typescript-eslint/no-floating-promises
               fetchOneUser.refetch()}
           >
@@ -153,12 +153,7 @@ export default function Main() {
 
         <button
           className="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
-          onClick={() => {
-            handleCreateUser
-            setClick(true);
-            // eslint-disable-next-line @typescript-eslint/no-floating-promises
-            fetchAllUsers.refetch()
-          }}
+          onClick={handleCreateUser}
         >
           Create User
         </button>
@@ -189,12 +184,7 @@ export default function Main() {
         />
         <button
           className="mt-2 rounded bg-orange-500 px-4 py-2 text-white hover:bg-orange-600"
-          onClick={() => {
-            handleUpdateUser
-            setClick(true);
-            // eslint-disable-next-line @typescript-eslint/no-floating-promises
-            fetchAllUsers.refetch()
-          }}
+          onClick={handleUpdateUser}
         >
           Update User
         </button>
@@ -212,12 +202,7 @@ export default function Main() {
         />
         <button
           className="mt-2 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
-          onClick={() => {
-            handleDeleteUser
-            setClick(true);
-            // eslint-disable-next-line @typescript-eslint/no-floating-promises
-            fetchAllUsers.refetch()
-          }}
+          onClick={handleDeleteUser}
         >
           Delete User
         </button>
